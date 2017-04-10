@@ -16,7 +16,6 @@ function movies(state = [], action) {
     default:
       return state;
   }
-  return state;
 }
 
-export default movies
+export default movies;

@@ -6,7 +6,7 @@ class Main extends React.Component {
     return (
       <div>
         <Header />
-        {React.cloneElement(this.props.children)}
+        {React.cloneElement(this.props.children, this.props)}
       </div>
     )
   }
