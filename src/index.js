@@ -8,20 +8,15 @@ import NoMatch from './components/NoMatch';
 
 import './styles/index.css';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 
 const Root = () => (
-    <Router>
-      <div>
-        <Main>
-          <Switch>
-            <Route exact path="/movies/:id" component={Movie} />
-            <Route exact path="/movies" component={MoviesGrid} />
-            <Route component={NoMatch}/>
-          </Switch>
-        </Main>
-      </div>
+    <Router history={browserHistory}>
+      <Route path="/movies" component={MoviesGrid} />
+        {/* <IndexRoute component={}></IndexRoute> */}
+        <Route path="/movies/:id" component={Movie} />
+      <Route path="*" component={NoMatch}/>
     </Router>
   )
 
