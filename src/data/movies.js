@@ -28,3 +28,5 @@ const movies = [
     "img": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Sleight_film_poster.jpg/220px-Sleight_film_poster.jpg"
   }
 ]
+
+export default movies;

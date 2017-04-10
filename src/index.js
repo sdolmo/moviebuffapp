@@ -8,21 +8,25 @@ import NoMatch from './components/NoMatch';
 
 import './styles/index.css';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 
 
-const Root = () => (
-    <Router history={browserHistory}>
-      <Route path="/movies" component={MoviesGrid} />
-        {/* <IndexRoute component={}></IndexRoute> */}
-        <Route path="/movies/:id" component={Movie} />
+const Root = (
+  <Provider store={store}>
+    <Router history={history}>
+      <Route component={Main} />
+      <Route path="/movies" component={MoviesGrid}/>
+      <Route path="/movies/:id" component={Movie} />
       <Route path="*" component={NoMatch}/>
     </Router>
+  </Provider>
   )
 
 
 
 ReactDOM.render(
-  <Root />,
+  Root ,
   document.getElementById('root')
 );
