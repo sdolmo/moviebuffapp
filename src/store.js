@@ -10,8 +10,8 @@ import { editVisibility } from './actions/actionCreators';
 
 const defaultState = {
   movies,
-  addForm: addVisibility.DONT_SHOW,
-  editForm: editVisibility.DONT_SHOW
+  addForm: addVisibility.DONT_SHOW_FORM,
+  editForm: addVisibility.DONT_SHOW
 };
 
 const enhancers = compose(

@@ -15,7 +15,7 @@ class MovieGrid extends React.Component {
           contentLabel="Add Movie Form"
         >
           <button onClick={() => this.props.toggleAddForm(addVisibility.DONT_SHOW_FORM)}>Close</button>
-          <AddMovie />
+          <AddMovie {...this.props} />
         </ReactModal>
       </section>
     )
