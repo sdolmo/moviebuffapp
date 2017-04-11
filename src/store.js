@@ -5,9 +5,11 @@ import { browserHistory } from 'react-router';
 import rootReducer from './reducers/index';
 
 import movies from './data/movies';
+import { visibilityFilter } from './actions/actionCreators';
 
 const defaultState = {
-  movies
+  movies,
+  addForm: visibilityFilter.DONT_SHOW
 };
 
 const enhancers = compose(
@@ -15,6 +17,8 @@ const enhancers = compose(
 );
 
 const store = createStore(rootReducer, defaultState, enhancers);
+
+console.log(store.getState());
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
