@@ -3,7 +3,8 @@ import { routerReducer } from 'react-router-redux';
 
 import movies from './movies';
 import addForm from './addForm';
+import editForm from './editForm';
 
-const rootReducer = combineReducers({ addForm, movies, routing: routerReducer });
+const rootReducer = combineReducers({ editForm, addForm, movies, routing: routerReducer });
 
 export default rootReducer;

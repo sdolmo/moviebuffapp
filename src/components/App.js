@@ -6,7 +6,8 @@ import Main from './Main';
 function mapStateToProps(state) {
   return {
     movies: state.movies,
-    addForm: state.addForm
+    addForm: state.addForm,
+    editForm: state.editForm
   }
 }
 

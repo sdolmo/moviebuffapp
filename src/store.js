@@ -5,11 +5,13 @@ import { browserHistory } from 'react-router';
 import rootReducer from './reducers/index';
 
 import movies from './data/movies';
-import { visibilityFilter } from './actions/actionCreators';
+import { addVisibility } from './actions/actionCreators';
+import { editVisibility } from './actions/actionCreators';
 
 const defaultState = {
   movies,
-  addForm: visibilityFilter.DONT_SHOW
+  addForm: addVisibility.DONT_SHOW,
+  editForm: editVisibility.DONT_SHOW
 };
 
 const enhancers = compose(

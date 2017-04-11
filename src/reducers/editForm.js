@@ -1,6 +1,6 @@
-function addForm(state = false, action) {
+function editForm(state = false, action) {
   switch (action.type) {
-    case 'TOGGLE_ADD_FORM':
+    case 'TOGGLE_EDIT_FORM':
       console.log(state);
       return action.filter
       default:
@@ -8,4 +8,4 @@ function addForm(state = false, action) {
   }
 }
 
-export default addForm;
+export default editForm;

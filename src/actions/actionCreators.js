@@ -1,4 +1,9 @@
-export const visibilityFilter = {
+export const addVisibility = {
+  SHOW_FORM: true,
+  DONT_SHOW_FORM: false
+}
+
+export const editVisibility = {
   SHOW: true,
   DONT_SHOW: false
 }
@@ -10,11 +15,12 @@ export function toggleAddForm(filter) {
   }
 }
 
-// export function toggleEditForm() {
-//   return {
-//     type: 'TOGGLE_EDIT_FORM'
-//   }
-// }
+export function toggleEditForm(filter) {
+  return {
+    type: 'TOGGLE_EDIT_FORM',
+    filter
+  }
+}
 
 export function addMovie(title, director, description, genre, img) {
   return {
