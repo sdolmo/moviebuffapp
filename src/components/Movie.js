@@ -21,7 +21,7 @@ class Movie extends React.Component {
           contentLabel="Edit Movie Form"
         >
           <button onClick={() => this.props.toggleEditForm(editVisibility.DONT_SHOW)}>Close</button>
-          <EditMovie />
+          <EditMovie {...this.props} movie={movie}/>
         </ReactModal>
       </div>
     )

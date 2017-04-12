@@ -6,7 +6,8 @@ function movies(state = [], action) {
         director: action.director,
         description: action.description,
         genre: action.genre,
-        img: action.image
+        img: action.image,
+        id: '4'
       }];
     case 'REMOVE_MOVIE':
       return [

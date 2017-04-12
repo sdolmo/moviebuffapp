@@ -1,4 +1,5 @@
 import React from 'react';
+import { addVisibility } from '../actions/actionCreators';
 
 class AddMovie extends React.Component {
   handleSubmit = (event) => {
@@ -9,7 +10,8 @@ class AddMovie extends React.Component {
     const genre = this.refs.genre.value;
     const image = this.refs.image.value;
     this.props.addMovie(title, director, description, genre, image);
-    this.refs.addMovieForm()
+    this.refs.addMovieForm.reset();
+    this.props.toggleAddForm(addVisibility.DONT_SHOW_FORM)
   }
 
   render() {
