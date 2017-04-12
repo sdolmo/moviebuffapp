@@ -8,7 +8,7 @@ class MovieGrid extends React.Component {
   render() {
     return (
       <section>
-        {this.props.movies.map((movie, i) => <MovieItem {...this.props} key={i} id={i} movie={movie}/>)}
+        {this.props.movies.items.map((movie, i) => <MovieItem {...this.props} key={i} id={i} movie={movie}/>)}
         <button onClick={() => this.props.toggleAddForm(addVisibility.SHOW_FORM)}>Add Movie</button>
         <ReactModal
           isOpen={this.props.addForm}

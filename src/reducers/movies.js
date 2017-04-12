@@ -4,18 +4,21 @@ function movies(state = {
 }, action) {
   switch(action.type) {
     case 'ADD_MOVIE':
-      return [...state, {
+      console.log(state)
+      const newAddState = {...state};
+      newAddState.items.push({
         title: action.title,
         director: action.director,
         description: action.description,
         genre: action.genre,
         img: action.img,
         id: '4'
-      }];
+      });
+      return newAddState;
     case 'UPDATE_MOVIE':
       const index = action.index;
-      const newArray = state.slice();
-      newArray[index] = {
+      const newUpdateState = {...state};
+      newUpdateState.items[index] = {
         id: action.param,
         title: action.title,
         director: action.director,
@@ -23,7 +26,7 @@ function movies(state = {
         genre: action.genre,
         img: action.img,
       };
-      return newArray;
+      return newUpdateState;
     case 'REMOVE_MOVIE':
       return [
         ...state.slice(0,action.index),

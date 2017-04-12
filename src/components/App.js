@@ -7,8 +7,7 @@ function mapStateToProps(state) {
   return {
     movies: state.movies,
     addForm: state.addForm,
-    editForm: state.editForm,
-    isFetching: state.isFetching
+    editForm: state.editForm
   }
 }
 
