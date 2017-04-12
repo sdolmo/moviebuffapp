@@ -33,6 +33,19 @@ export function addMovie(title, director, description, genre, img) {
   }
 }
 
+export function updateMovie(param, index, title, director, description, genre, img) {
+  return {
+    type: 'UPDATE_MOVIE',
+    param,
+    index,
+    title,
+    director,
+    description,
+    genre,
+    img
+  }
+}
+
 export function removeMovie(index) {
   return {
     type: 'REMOVE_MOVIE',

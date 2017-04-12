@@ -9,6 +9,19 @@ function movies(state = [], action) {
         img: action.image,
         id: '4'
       }];
+    case 'UPDATE_MOVIE':
+      const index = action.index;
+      const newArray = state.slice();
+      newArray[index] = {
+        id: action.param,
+        title: action.title,
+        director: action.director,
+        description: action.description,
+        genre: action.genre,
+        img: action.img,
+      };
+      console.log(newArray);
+      return newArray;
     case 'REMOVE_MOVIE':
       return [
         ...state.slice(0,action.index),
