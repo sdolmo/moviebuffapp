@@ -1,4 +1,7 @@
-function movies(state = [], action) {
+function movies(state = {
+  isFetching: false,
+  items: []
+}, action) {
   switch(action.type) {
     case 'ADD_MOVIE':
       return [...state, {
@@ -6,7 +9,7 @@ function movies(state = [], action) {
         director: action.director,
         description: action.description,
         genre: action.genre,
-        img: action.image,
+        img: action.img,
         id: '4'
       }];
     case 'UPDATE_MOVIE':
@@ -20,13 +23,22 @@ function movies(state = [], action) {
         genre: action.genre,
         img: action.img,
       };
-      console.log(newArray);
       return newArray;
     case 'REMOVE_MOVIE':
       return [
         ...state.slice(0,action.index),
         ...state.slice(action.index + 1)
       ]
+    case 'FETCH_MOVIES_REQUEST':
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case 'FETCH_MOVIES_RECEIVE':
+      return Object.assign({}, state, {
+        isFetching: false,
+        movies: action.movies,
+        lastUpdated: action.receivedAt
+      })
     default:
       return state;
   }

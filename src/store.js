@@ -4,12 +4,12 @@ import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
 
-import movies from './data/movies';
+// import movies from './data/movies';
 import { addVisibility } from './actions/actionCreators';
 import { editVisibility } from './actions/actionCreators';
 
 const defaultState = {
-  movies,
+  movies: { isFetching: false, items: [] },
   addForm: addVisibility.DONT_SHOW_FORM,
   editForm: addVisibility.DONT_SHOW
 };

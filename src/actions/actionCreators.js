@@ -52,3 +52,28 @@ export function removeMovie(index) {
     index
   }
 }
+
+export function requestMovies() {
+  return {
+    type: 'FETCH_MOVIES_REQUEST'
+  }
+}
+
+export function receiveMovies(movies) {
+  return {
+    type: 'FETCH_MOVIES_RECEIVE',
+    movies,
+    receivedAt: Date.now()
+  }
+}
+
+export function failedToFetchMovies() {
+  return {
+    type: 'FETCH_MOVIES_FAIL',
+    error: 'Oops'
+  }
+}
+//
+// export function fetchMovies() {
+//
+// }
