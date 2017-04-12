@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 export const addVisibility = {
   SHOW_FORM: true,
   DONT_SHOW_FORM: false
@@ -73,7 +75,14 @@ export function failedToFetchMovies() {
     error: 'Oops'
   }
 }
-//
-// export function fetchMovies() {
-//
-// }
+
+export function fetchMovies() {
+  return function (dispatch) {
+    dispatch(requestMovies())
+    return fetch('http://localhost:8000/movies')
+      .then(response => response.json())
+      .then (json => 
+        dispatch(receiveMovies(json))
+      )
+  }
+}
