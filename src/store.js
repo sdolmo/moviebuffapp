@@ -1,24 +1,35 @@
-import { createStore, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
 
-// import movies from './data/movies';
+import movies from './data/movies';
 import { addVisibility } from './actions/actionCreators';
 import { editVisibility } from './actions/actionCreators';
 
 const defaultState = {
-  movies: { isFetching: false, items: [] },
+  movies: { isFetching: false, items: movies },
   addForm: addVisibility.DONT_SHOW_FORM,
-  editForm: addVisibility.DONT_SHOW
+  editForm: editVisibility.DONT_SHOW
 };
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : (f) => f
 );
 
-const store = createStore(rootReducer, defaultState, enhancers);
+// const loggerMiddleware = createLogger();
+
+const store = createStore(
+  rootReducer,
+  defaultState,
+  enhancers,
+  applyMiddleware(
+    thunkMiddleware // lets us dispatch() functions
+    // loggerMiddleware // neat middleware that logs actions
+  )
+);
 
 console.log(store.getState());
 
