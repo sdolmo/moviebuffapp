@@ -6,8 +6,10 @@ import { editVisibility } from '../actions/actionCreators';
 
 class Movie extends React.Component {
   render() {
-    const i = this.props.movies.items.findIndex((movie) => movie.id === this.props.params.id);
+    const i = this.props.movies.items.findIndex((movie) => movie.id === parseInt(this.props.params.id));
     const movie = this.props.movies.items[i];
+    console.log(i);
+    console.log(movie);
     return (
       <div>
         <button onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
