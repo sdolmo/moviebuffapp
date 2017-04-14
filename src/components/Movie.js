@@ -15,8 +15,10 @@ class Movie extends React.Component {
         <button onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
         <MovieItem movie={movie}/>
         <img src={movie.img} />
-        <p>{movie.description}</p>
-        <p>{movie.genre}</p>
+        <section>
+          <p>{movie.description}</p>
+          <p>{movie.genre}</p>
+        </section>
         <ReactModal
           isOpen={this.props.editForm}
           contentLabel="Edit Movie Form"

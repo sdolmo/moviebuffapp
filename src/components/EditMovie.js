@@ -25,6 +25,7 @@ class EditMovie extends React.Component {
           <input type="text" ref="image" defaultValue={this.props.movie.img}/>
           <input type="submit"/>
         </form>
+        <button>Delete</button>
       </div>
     )
   }
