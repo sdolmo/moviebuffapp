@@ -37,11 +37,9 @@ function movies(state = {
         isFetching: true
       })
     case 'FETCH_MOVIES_RECEIVE':
-      return Object.assign({}, state, {
-        isFetching: false,
-        movies: action.movies,
-        lastUpdated: action.receivedAt
-      })
+      const newFetchState = {...state};
+      newFetchState.items.push(...action.movies);
+      return newFetchState;
     default:
       return state;
   }

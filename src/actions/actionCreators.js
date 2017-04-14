@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import fetch from 'isomorphic-fetch';
 // import store from '../store.js';
 
@@ -77,13 +78,13 @@ export function failedToFetchMovies() {
   }
 }
 
-// export function fetchMovies() {
-//   return function (dispatch) {
-//     store.dispatch(requestMovies())
-//     return fetch('http://localhost:8000/movies')
-//       .then(response => response.json())
-//       .then (json =>
-//         dispatch(receiveMovies(json))
-//       )
-//   }
-// }
+export function fetchMovies() {
+  return function (dispatch) {
+    dispatch(requestMovies())
+    return fetch('http://localhost:8000/movies')
+      .then(response => response.json())
+      .then (json =>
+        dispatch(receiveMovies(json))
+      )
+  }
+}
