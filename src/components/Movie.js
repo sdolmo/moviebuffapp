@@ -14,7 +14,7 @@ class Movie extends React.Component {
       <div>
         <button onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
         <MovieItem movie={movie}/>
-        <img src={movie.img} />
+        <img alt={`${movie.title}`} src={movie.img} />
         <section>
           <p>{movie.description}</p>
           <p>{movie.genre}</p>

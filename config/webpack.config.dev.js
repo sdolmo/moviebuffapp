@@ -114,7 +114,8 @@ module.exports = {
           /\.css$/,
           /\.json$/,
           /\.svg$/,
-          /\.sass$/
+          /\.sass$/,
+          /.scss$/
         ],
         loader: 'url',
         query: {
@@ -161,8 +162,11 @@ module.exports = {
       // adding sass loader
       {
         test: /\.sass$/,
-        include: paths.appSrc,
-        loaders: ["stlye", "css", "sass"]
+        loaders: ["style", "css", "sass"]
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
