@@ -95,15 +95,24 @@
 .modal-form input,
 .modal-form textarea {
   margin: 5% auto;
+  text-indent: 0;
   font: normal 2rem "Caviar_Dreams", sans-serif;
   border: none;
+  border-color: #000;
   outline: none;
+  transition: text-indent .2s, border-color .2s;
 }
 
 .modal-form input:hover,
 .modal-form textarea:hover {
   border-color: rgb(188, 188, 255);
-  text-indent: 5%;
+  text-indent: 2%;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+  border-color: rgb(188, 188, 255);
+  text-indent: 2%;
 }
 
 .modal-form input {
