@@ -11,11 +11,10 @@ class Movie extends React.Component {
     console.log(i);
     console.log(movie);
     return (
-      <div className="single-movie">
-        <button className="btn" onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
-        <MovieItem movie={movie}/>
+      <main className="single-movie">
         <img alt={`${movie.title}`} src={movie.img} />
         <section className="movie-description">
+          <MovieItem movie={movie}/>
           <p>{movie.description}</p>
           <p>{movie.genre}</p>
         </section>
@@ -30,7 +29,7 @@ class Movie extends React.Component {
           <EditMovie {...this.props} movie={movie} index={i}/>
 
         </ReactModal>
-      </div>
+      </main>
     )
   }
 }

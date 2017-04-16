@@ -2,3 +2,46 @@
 @import './_normalize.scss';
 @import './_typography.scss';
 @import './_colors.scss';
+@import './_buttons.scss';
+
+// Header
+.tagline {
+  padding: 3rem;
+  color: #fff;
+}
+
+.tagline:hover {
+  color: $primary-color;
+}
+
+// MovieGrid
+.movie-list {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.movie-item {
+  text-align: center;
+  width: 60%;
+  padding: 2rem;
+  margin: 2em auto;
+  background-color: #fff;
+  box-shadow: 10px 10px $primary-color;
+}
+
+.movie-item img{
+  width: 25%;
+}
+
+.movie-item section {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  float: right;
+  width: 50%;
+  line-height: .5;
+}
+
+.add-btn {
+  margin-left: 50%;
+  margin-bottom: 2%;
+}

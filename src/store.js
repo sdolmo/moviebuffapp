@@ -5,13 +5,13 @@ import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
 
-// import movies from './data/movies';
+import movies from './data/movies';
 import { addVisibility } from './actions/actionCreators';
 import { editVisibility } from './actions/actionCreators';
 import { fetchMovies } from './actions/actionCreators';
 
 const defaultState = {
-  movies: { isFetching: false, items: [] },
+  movies: { isFetching: false, items: movies },
   addForm: addVisibility.DONT_SHOW_FORM,
   editForm: editVisibility.DONT_SHOW
 };
@@ -24,11 +24,11 @@ const enhancers = compose(
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(
-    thunkMiddleware // lets us dispatch() functions
-    // loggerMiddleware // neat middleware that logs actions
-  )
-  // defaultState,
+  // applyMiddleware(
+  //   thunkMiddleware // lets us dispatch() functions
+  //   // loggerMiddleware // neat middleware that logs actions
+  // )
+  defaultState
   // enhancers
 );
 
