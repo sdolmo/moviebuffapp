@@ -16,7 +16,7 @@
 
 // MovieGrid
 .movie-list {
-  margin-top: 5em;
+  margin-top: 2em;
   margin-bottom: 5em;
 }
 
@@ -44,4 +44,40 @@
 .add-btn {
   margin-left: 50%;
   margin-bottom: 2%;
+}
+
+// Modal
+.modal {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.modal-form {
+  margin: 2% auto;
+  width: 27em;
+  text-align: center;
+}
+
+.modal-form input,
+.modal-form textarea {
+  margin: 5% auto;
+  font: normal 2rem "Caviar_Dreams", sans-serif;
+  border: none;
+  outline: none;
+}
+
+.modal-form input:hover,
+.modal-form textarea:hover {
+  border-color: rgb(188, 188, 255);
+}
+
+.modal-form input {
+  width: 100%;
+  border-bottom: 2px solid #000;
+}
+
+.modal-form textarea {
+  width: 535px;
+  height: 150px;
+  border: 2px solid #000;
 }

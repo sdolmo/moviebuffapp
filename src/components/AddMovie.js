@@ -21,10 +21,10 @@ class AddMovie extends React.Component {
         <form className="modal-form" ref="addMovieForm" onSubmit={this.handleSubmit}>
           <input type="text" ref="title" placeholder="Title"/>
           <input type="text" ref="director" placeholder="Director"/>
-          <textarea type="text" ref="description" placeholder="description"></textarea>
           <input type="text" ref="genre" placeholder="Genre"/>
           <input type="text" ref="image" placeholder="Image"/>
-          <input className="btn" type="submit"/>
+          <textarea type="text" ref="description" placeholder="Description"></textarea>
+          <button className="modal-btn">Submit</button>
         </form>
       </div>
     )

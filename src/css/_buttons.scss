@@ -14,3 +14,16 @@
 }
 
 // on-modal buttons
+.modal-btn {
+  padding: 1rem;
+  color: #000;
+  font: bold 2rem "Caviar_Dreams", sans-serif;
+  background: rgba(0,0,0,0);
+  border: 2px solid #000;
+  border-radius: 10px;
+  outline: none;
+}
+
+.modal-btn:hover {
+  background-color: $primary-color;
+}
