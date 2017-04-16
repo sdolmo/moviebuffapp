@@ -4,9 +4,9 @@ import { Link } from 'react-router';
 class MovieItem extends React.Component {
   render() {
     return (
-      <li>
+      <li className="movie-item">
         <Link to={`/movies/${this.props.movie.id}`}>
-          <h2>{this.props.movie.title}</h2>
+          <h3>{this.props.movie.title}</h3>
           <em><p>{this.props.movie.director}</p></em>
         </Link>
       </li>

@@ -6,9 +6,9 @@ import MoviesGrid from './components/MoviesGrid';
 import Movie from './components/Movie';
 import NoMatch from './components/NoMatch';
 
-import './styles/index.css';
+import './css/App.scss';
 
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
