@@ -6,9 +6,9 @@ class MovieItem extends React.Component {
     return (
       <li className="movie-item">
         <Link to={`/movies/${this.props.movie.id}`}>
-          <img src={this.props.movie.img} alt=""/>
+          <img src={this.props.movie.img} alt={this.props.movie.title}/>
           <section>
-            <h3>{this.props.movie.title}</h3>
+            <h4>{this.props.movie.title}</h4>
             <em><p>{this.props.movie.director}</p></em>
           </section>
         </Link>

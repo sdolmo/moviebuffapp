@@ -12,20 +12,25 @@ class Movie extends React.Component {
     console.log(movie);
     return (
       <main className="single-movie">
-        <img alt={`${movie.title}`} src={movie.img} />
-        <section className="movie-description">
-          <MovieItem movie={movie}/>
-          <p>{movie.description}</p>
-          <p>{movie.genre}</p>
-        </section>
+        <article>
+          <img alt={`${movie.title}`} src={movie.img} />
+          <section className="movie-description">
+            <h3>{movie.title}</h3>
+            <h5>Director:</h5>
+            <p>{movie.director}</p>
+            <h5>Description:</h5>
+            <p>{movie.description}</p>
+            <h6>Genre: {movie.genre}</h6>
+          </section>
+        </article>
 
-        <button onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
+        <button className="btn edit-btn" onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
 
         <ReactModal
           isOpen={this.props.editForm}
           contentLabel="Edit Movie Form"
         >
-          <button className="btn" onClick={() => this.props.toggleEditForm(editVisibility.DONT_SHOW)}>Close</button>
+          <button className="modal-btn" onClick={() => this.props.toggleEditForm(editVisibility.DONT_SHOW)}>Close</button>
           <EditMovie {...this.props} movie={movie} index={i}/>
 
         </ReactModal>

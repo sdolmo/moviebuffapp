@@ -8,7 +8,7 @@ class MovieGrid extends React.Component {
   render() {
     return (
       <main>
-        {/* <button className="btn" onClick={() => this.props.fetchMovies()}>Load Data</button> */}
+        <button className="btn" onClick={() => this.props.fetchMovies()}>Load Data</button>
         <ul className="movie-list">
           {this.props.movies.items.map((movie, i) => <MovieItem {...this.props} key={i} id={i} movie={movie}/>)}
         </ul>

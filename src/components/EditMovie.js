@@ -20,12 +20,12 @@ class EditMovie extends React.Component {
         <form className="modal-form" ref="editMovieForm" onSubmit={this.handleSubmit}>
           <input type="text" ref="title" defaultValue={this.props.movie.title}/>
           <input type="text" ref="director" defaultValue={this.props.movie.director}/>
-          <textarea ref="description" defaultValue={this.props.movie.description}></textarea>
           <input type="text" ref="genre" defaultValue={this.props.movie.genre}/>
           <input type="text" ref="image" defaultValue={this.props.movie.img}/>
-          <input className="btn" type="submit"/>
+          <textarea ref="description" defaultValue={this.props.movie.description}></textarea>
+          <button className="modal-btn">Submit</button>
+          <button className="modal-btn delete-btn">Delete</button>
         </form>
-        <button className="btn">Delete</button>
       </div>
     )
   }

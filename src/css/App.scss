@@ -14,7 +14,7 @@
   color: $primary-color;
 }
 
-// MovieGrid
+// MovieGrid Component
 .movie-list {
   margin-top: 2em;
   margin-bottom: 5em;
@@ -46,6 +46,40 @@
   margin-bottom: 2%;
 }
 
+// Movie Component
+.single-movie {
+  margin: 5% auto;
+  width: 80%;
+}
+
+.single-movie article {
+  margin-bottom: 2em;
+}
+
+.single-movie img {
+  width: 40%;
+  box-shadow: 10px 10px $primary-color;
+}
+
+.single-movie h4 {
+  margin-bottom: 0;
+}
+
+.single-movie p {
+  text-indent: 5%;
+}
+
+.movie-description {
+  position: relative;
+  float: right;
+  width: 50%;
+  color: #fff;
+}
+
+.edit-btn {
+  margin-left: 50%;
+}
+
 // Modal
 .modal {
   margin-top: 2%;
@@ -69,6 +103,7 @@
 .modal-form input:hover,
 .modal-form textarea:hover {
   border-color: rgb(188, 188, 255);
+  text-indent: 5%;
 }
 
 .modal-form input {

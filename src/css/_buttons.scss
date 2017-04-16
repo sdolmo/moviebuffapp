@@ -16,6 +16,7 @@
 // on-modal buttons
 .modal-btn {
   padding: 1rem;
+  margin: 10px;
   color: #000;
   font: bold 2rem "Caviar_Dreams", sans-serif;
   background: rgba(0,0,0,0);
@@ -26,4 +27,8 @@
 
 .modal-btn:hover {
   background-color: $primary-color;
+}
+
+.delete-btn:hover {
+  background-color: red;
 }
