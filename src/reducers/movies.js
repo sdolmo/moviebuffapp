@@ -38,7 +38,7 @@ function movies(state = {
       })
     case 'FETCH_MOVIES_RECEIVE':
       const newFetchState = {...state};
-      newFetchState.items.push(...action.movies);
+      newFetchState.items = [...action.movies];
       return newFetchState;
     default:
       return state;

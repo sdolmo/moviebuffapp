@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Header = (props) => {
   return (
     <header>
-      <Link to='/movies'><h1>Movie Buff</h1></Link>
+      <Link to='/movies'><h1 className="tagline">Movie Buff</h1></Link>
     </header>
   )
 }

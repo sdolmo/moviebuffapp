@@ -11,11 +11,11 @@ class Movie extends React.Component {
     console.log(i);
     console.log(movie);
     return (
-      <div>
-        <button onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
+      <div className="single-movie">
+        <button className="btn" onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
         <MovieItem movie={movie}/>
         <img alt={`${movie.title}`} src={movie.img} />
-        <section>
+        <section className="movie-description">
           <p>{movie.description}</p>
           <p>{movie.genre}</p>
         </section>
@@ -23,7 +23,7 @@ class Movie extends React.Component {
           isOpen={this.props.editForm}
           contentLabel="Edit Movie Form"
         >
-          <button onClick={() => this.props.toggleEditForm(editVisibility.DONT_SHOW)}>Close</button>
+          <button className="btn" onClick={() => this.props.toggleEditForm(editVisibility.DONT_SHOW)}>Close</button>
           <EditMovie {...this.props} movie={movie} index={i}/>
         </ReactModal>
       </div>
