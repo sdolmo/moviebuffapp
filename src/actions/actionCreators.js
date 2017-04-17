@@ -28,15 +28,9 @@ export function toggleEditForm(filter) {
   }
 }
 
-export function requestAddMovie() {
+export function requestAddMovie(title, director, description, genre, img) {
   return {
-    type: 'ADD_MOVIES_REQUEST'
-  }
-}
-
-export function addMovie(title, director, description, genre, img) {
-  return {
-    type: 'ADD_MOVIE',
+    type: 'ADD_MOVIE_REQUEST',
     title,
     director,
     description,
@@ -45,7 +39,54 @@ export function addMovie(title, director, description, genre, img) {
   }
 }
 
+export function addMovieSuccess(message) {
+  return {
+    type: 'ADD_MOVIE_SUCCESS',
+    message
+  }
+}
 
+export function addMovieFail(response) {
+  return {
+    type: 'ADD_MOVIE_FAIL',
+    error: response
+  }
+}
+
+export function addMovie(title, director, description, genre, img) {
+  return function(dispatch) {
+    dispatch(requestAddMovie(title, director, description, genre, img))
+    console.log({
+      title,
+      director,
+      description,
+      genre,
+      img
+    })
+    return fetch(url, {
+      method: "post",
+      body: JSON.stringify({
+        title,
+        director,
+        description,
+        genre,
+        img
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "omit"
+    })
+    .then(response => response.json())
+    .then(message =>
+      console.log(message)
+      // dispatch(addMovieSuccess(message))
+    )
+    .catch(response =>
+      dispatch(addMovieFail(response))
+    )
+  }
+}
 
 export function updateMovie(param, index, title, director, description, genre, img) {
   return {
@@ -81,10 +122,10 @@ export function fetchMoviesSuccess(movies) {
   }
 }
 
-export function fetchMoviesFail() {
+export function fetchMoviesFail(response) {
   return {
     type: 'FETCH_MOVIES_FAIL',
-    error: 'Oops'
+    error: response,
   }
 }
 
@@ -96,6 +137,8 @@ export function fetchMovies() {
       .then (json =>
         dispatch(fetchMoviesSuccess(json))
       )
-      .catch(response => console.log(`Error: ${response}`))
+      .catch(response =>
+        dispatch(fetchMoviesFail(response))
+      )
   }
 }

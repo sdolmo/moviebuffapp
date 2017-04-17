@@ -11,7 +11,7 @@ import { editVisibility } from './actions/actionCreators';
 import { fetchMovies } from './actions/actionCreators';
 
 const defaultState = {
-  movies: { isFetching: false, items: [] },
+  movies: { isFetching: false, isAdding: false, items: [] },
   addForm: addVisibility.DONT_SHOW_FORM,
   editForm: editVisibility.DONT_SHOW
 };

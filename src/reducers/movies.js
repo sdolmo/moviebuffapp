@@ -1,9 +1,10 @@
 function movies(state = {
   isFetching: false,
+  isAdding: false,
   items: []
 }, action) {
   switch(action.type) {
-    case 'ADD_MOVIE':
+    case 'ADD_MOVIE_REQUEST':
       console.log(state)
       const newAddState = {...state};
       newAddState.items.push({

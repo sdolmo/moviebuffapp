@@ -5,10 +5,13 @@ import AddMovie from './AddMovie';
 import { addVisibility } from '../actions/actionCreators';
 
 class MovieGrid extends React.Component {
+  componentDidMount() {
+    this.props.fetchMovies();
+  }
+
   render() {
     return (
       <main>
-        <button className="btn" onClick={() => this.props.fetchMovies()}>Load Data</button>
         <ul className="movie-list">
           {this.props.movies.items.map((movie, i) => <MovieItem {...this.props} key={i} id={i} movie={movie}/>)}
         </ul>
