@@ -36,7 +36,7 @@ function movies(state = {
       return Object.assign({}, state, {
         isFetching: true
       })
-    case 'FETCH_MOVIES_RECEIVE':
+    case 'FETCH_MOVIES_SUCCESS':
       const newFetchState = {...state};
       newFetchState.items = [...action.movies];
       return newFetchState;

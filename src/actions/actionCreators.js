@@ -2,6 +2,8 @@ import 'babel-polyfill';
 import fetch from 'isomorphic-fetch';
 // import store from '../store.js';
 
+const url = 'http://localhost:8000/movies';
+
 export const addVisibility = {
   SHOW_FORM: true,
   DONT_SHOW_FORM: false
@@ -26,6 +28,12 @@ export function toggleEditForm(filter) {
   }
 }
 
+export function requestAddMovie() {
+  return {
+    type: 'ADD_MOVIES_REQUEST'
+  }
+}
+
 export function addMovie(title, director, description, genre, img) {
   return {
     type: 'ADD_MOVIE',
@@ -36,6 +44,8 @@ export function addMovie(title, director, description, genre, img) {
     img
   }
 }
+
+
 
 export function updateMovie(param, index, title, director, description, genre, img) {
   return {
@@ -57,21 +67,21 @@ export function removeMovie(index) {
   }
 }
 
-export function requestMovies() {
+export function requestFetchMovies() {
   return {
     type: 'FETCH_MOVIES_REQUEST'
   }
 }
 
-export function receiveMovies(movies) {
+export function fetchMoviesSuccess(movies) {
   return {
-    type: 'FETCH_MOVIES_RECEIVE',
+    type: 'FETCH_MOVIES_SUCCESS',
     movies,
     receivedAt: Date.now()
   }
 }
 
-export function failedToFetchMovies() {
+export function fetchMoviesFail() {
   return {
     type: 'FETCH_MOVIES_FAIL',
     error: 'Oops'
@@ -80,11 +90,12 @@ export function failedToFetchMovies() {
 
 export function fetchMovies() {
   return function (dispatch) {
-    dispatch(requestMovies())
-    return fetch('http://localhost:8000/movies')
+    dispatch(requestFetchMovies())
+    return fetch(url)
       .then(response => response.json())
       .then (json =>
-        dispatch(receiveMovies(json))
+        dispatch(fetchMoviesSuccess(json))
       )
+      .catch(response => console.log(`Error: ${response}`))
   }
 }
