@@ -11,7 +11,7 @@ class EditMovie extends React.Component {
     const description = this.refs.description.value;
     const genre = this.refs.genre.value;
     const image = this.refs.image.value;
-    this.props.requestUpdateMovie(param, index, title, director, description, genre, image);
+    this.props.updateMovie(param, index, title, director, description, genre, image);
     this.props.toggleEditForm(editVisibility.DONT_SHOW);
   }
 
@@ -26,7 +26,6 @@ class EditMovie extends React.Component {
           <input type="text" ref="image" defaultValue={this.props.movie.img}/>
           <textarea ref="description" defaultValue={this.props.movie.description}></textarea>
           <button className="modal-btn">Submit</button>
-          <button className="modal-btn delete-btn">Delete</button>
         </form>
       </div>
     )

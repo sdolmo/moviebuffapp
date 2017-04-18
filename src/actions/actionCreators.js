@@ -3,6 +3,8 @@ import fetch from 'isomorphic-fetch';
 
 const url = 'http://localhost:8000/movies';
 
+// EDIT and ADD MODAL
+
 export const addVisibility = {
   SHOW_FORM: true,
   DONT_SHOW_FORM: false
@@ -27,6 +29,43 @@ export function toggleEditForm(filter) {
   }
 }
 
+// FETCH
+export function requestFetchMovies() {
+  return {
+    type: 'FETCH_MOVIES_REQUEST'
+  }
+}
+
+export function fetchMoviesSuccess(movies) {
+  return {
+    type: 'FETCH_MOVIES_SUCCESS',
+    movies,
+    receivedAt: Date.now()
+  }
+}
+
+export function fetchMoviesFail(response) {
+  return {
+    type: 'FETCH_MOVIES_FAIL',
+    error: response,
+  }
+}
+
+export function fetchMovies() {
+  return function (dispatch) {
+    dispatch(requestFetchMovies())
+    return fetch(url)
+    .then(response => response.json())
+    .then (json =>
+      dispatch(fetchMoviesSuccess(json))
+    )
+    .catch(response =>
+      dispatch(fetchMoviesFail(response))
+    )
+  }
+}
+
+// ADD
 export function requestAddMovie(title, director, description, genre, img) {
   return {
     type: 'ADD_MOVIE_REQUEST',
@@ -93,6 +132,7 @@ export function requestUpdateMovie(param, index, title, director, description, g
   }
 }
 
+// UPDATE
 export function updateMovieSuccess(message) {
   return {
     type: 'UPDATE_MOVIE_SUCCESS',
@@ -110,8 +150,8 @@ export function updateMovieFail(response) {
 export function updateMovie(param, index, title, director, description, genre, img) {
   return function(dispatch){
     dispatch(requestUpdateMovie(param, index, title, director, description, genre, img))
-    return fetch(url, {
-      method:"PUT",
+    return fetch(url+`/${param}`, {
+      method:"POST",
       body: JSON.stringify({
           title,
           director,
@@ -135,44 +175,10 @@ export function updateMovie(param, index, title, director, description, genre, i
   }
 }
 
+// DELETE
 export function removeMovie(index) {
   return {
     type: 'REMOVE_MOVIE',
     index
-  }
-}
-
-export function requestFetchMovies() {
-  return {
-    type: 'FETCH_MOVIES_REQUEST'
-  }
-}
-
-export function fetchMoviesSuccess(movies) {
-  return {
-    type: 'FETCH_MOVIES_SUCCESS',
-    movies,
-    receivedAt: Date.now()
-  }
-}
-
-export function fetchMoviesFail(response) {
-  return {
-    type: 'FETCH_MOVIES_FAIL',
-    error: response,
-  }
-}
-
-export function fetchMovies() {
-  return function (dispatch) {
-    dispatch(requestFetchMovies())
-    return fetch(url)
-      .then(response => response.json())
-      .then (json =>
-        dispatch(fetchMoviesSuccess(json))
-      )
-      .catch(response =>
-        dispatch(fetchMoviesFail(response))
-      )
   }
 }

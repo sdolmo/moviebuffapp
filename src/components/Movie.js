@@ -24,6 +24,7 @@ class Movie extends React.Component {
         </article>
 
         <button className="btn edit-btn" onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
+        <button className="btn delete-btn">Delete</button> 
 
         <ReactModal
           isOpen={this.props.editForm}
