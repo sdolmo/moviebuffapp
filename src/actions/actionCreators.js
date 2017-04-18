@@ -4,7 +4,6 @@ import fetch from 'isomorphic-fetch';
 const url = 'http://localhost:8000/movies';
 
 // EDIT and ADD MODAL
-
 export const addVisibility = {
   SHOW_FORM: true,
   DONT_SHOW_FORM: false
@@ -29,41 +28,6 @@ export function toggleEditForm(filter) {
   }
 }
 
-// READ
-export function requestFetchMovies() {
-  return {
-    type: 'FETCH_MOVIES_REQUEST'
-  }
-}
-
-export function fetchMoviesSuccess(movies) {
-  return {
-    type: 'FETCH_MOVIES_SUCCESS',
-    movies,
-    receivedAt: Date.now()
-  }
-}
-
-export function fetchMoviesFail(response) {
-  return {
-    type: 'FETCH_MOVIES_FAIL',
-    error: response,
-  }
-}
-
-export function fetchMovies() {
-  return function (dispatch) {
-    dispatch(requestFetchMovies())
-    return fetch(url)
-    .then(response => response.json())
-    .then (json =>
-      dispatch(fetchMoviesSuccess(json))
-    )
-    .catch(response =>
-      dispatch(fetchMoviesFail(response))
-    )
-  }
-}
 
 // CREATE
 export function requestAddMovie(title, director, description, genre, img) {
@@ -115,6 +79,42 @@ export function addMovie(title, director, description, genre, img) {
     )
     .catch(response =>
       dispatch(addMovieFail(response))
+    )
+  }
+}
+
+// READ
+export function requestFetchMovies() {
+  return {
+    type: 'FETCH_MOVIES_REQUEST'
+  }
+}
+
+export function fetchMoviesSuccess(movies) {
+  return {
+    type: 'FETCH_MOVIES_SUCCESS',
+    movies,
+    receivedAt: Date.now()
+  }
+}
+
+export function fetchMoviesFail(response) {
+  return {
+    type: 'FETCH_MOVIES_FAIL',
+    error: response,
+  }
+}
+
+export function fetchMovies() {
+  return function (dispatch) {
+    dispatch(requestFetchMovies())
+    return fetch(url)
+    .then(response => response.json())
+    .then (json =>
+      dispatch(fetchMoviesSuccess(json))
+    )
+    .catch(response =>
+      dispatch(fetchMoviesFail(response))
     )
   }
 }
