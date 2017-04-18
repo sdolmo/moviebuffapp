@@ -4,6 +4,12 @@ import EditMovie from './EditMovie';
 import { editVisibility } from '../actions/actionCreators';
 
 class Movie extends React.Component {
+  handleClick(i) {
+    const param = parseInt(this.props.params.id);
+    this.props.removeMovie(i, param);
+    window.location = '/movies';
+  }
+
   render() {
     const i = this.props.movies.items.findIndex((movie) => movie.id === parseInt(this.props.params.id));
     const movie = this.props.movies.items[i];
@@ -24,7 +30,7 @@ class Movie extends React.Component {
         </article>
 
         <button className="btn edit-btn" onClick={() => this.props.toggleEditForm(editVisibility.SHOW)}>Edit Movie</button>
-        <button className="btn delete-btn">Delete</button> 
+        <button className="btn delete-btn" onClick={() => this.handleClick(i)}>Delete</button>
 
         <ReactModal
           isOpen={this.props.editForm}

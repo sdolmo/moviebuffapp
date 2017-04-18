@@ -8,10 +8,9 @@ import rootReducer from './reducers/index';
 // import movies from './data/movies';
 import { addVisibility } from './actions/actionCreators';
 import { editVisibility } from './actions/actionCreators';
-import { fetchMovies } from './actions/actionCreators';
 
 const defaultState = {
-  movies: { isFetching: false, isAdding: false, items: [] },
+  movies: { isFetching: false, isAdding: false, isDeleting: false, items: [] },
   addForm: addVisibility.DONT_SHOW_FORM,
   editForm: editVisibility.DONT_SHOW
 };
@@ -33,7 +32,6 @@ const store = createStore(
 );
 
 console.log(store.getState());
-// console.log(store.dispatch(fetchMovies));
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

@@ -29,7 +29,7 @@ export function toggleEditForm(filter) {
   }
 }
 
-// FETCH
+// READ
 export function requestFetchMovies() {
   return {
     type: 'FETCH_MOVIES_REQUEST'
@@ -65,7 +65,7 @@ export function fetchMovies() {
   }
 }
 
-// ADD
+// CREATE
 export function requestAddMovie(title, director, description, genre, img) {
   return {
     type: 'ADD_MOVIE_REQUEST',
@@ -119,6 +119,7 @@ export function addMovie(title, director, description, genre, img) {
   }
 }
 
+// UPDATE
 export function requestUpdateMovie(param, index, title, director, description, genre, img) {
   return {
     type: 'UPDATE_MOVIE_REQUEST',
@@ -132,7 +133,6 @@ export function requestUpdateMovie(param, index, title, director, description, g
   }
 }
 
-// UPDATE
 export function updateMovieSuccess(message) {
   return {
     type: 'UPDATE_MOVIE_SUCCESS',
@@ -176,9 +176,34 @@ export function updateMovie(param, index, title, director, description, genre, i
 }
 
 // DELETE
-export function removeMovie(index) {
+export function requestRemoveMovie(index) {
   return {
     type: 'REMOVE_MOVIE',
     index
+  }
+}
+
+export function removeMovieSuccess() {
+  return {
+
+  }
+}
+
+export function removeMovieFail() {
+  return {
+
+  }
+}
+
+export function removeMovie(index, param) {
+  return function(dispatch) {
+    dispatch(requestRemoveMovie(index))
+    return fetch(url+`/${param}`, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(message =>
+      console.log(message)
+    )
   }
 }

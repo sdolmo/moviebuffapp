@@ -1,6 +1,7 @@
 function movies(state = {
   isFetching: false,
   isAdding: false,
+  isDeleting: false,
   items: []
 }, action) {
   switch(action.type) {
@@ -30,10 +31,14 @@ function movies(state = {
       };
       return newUpdateState;
     case 'REMOVE_MOVIE':
-      return [
-        ...state.slice(0,action.index),
-        ...state.slice(action.index + 1)
-      ]
+      const newDeleteState = {...state};
+      console.log(newDeleteState);
+      newDeleteState.items = [
+        ...state.items.slice(0,action.index),
+        ...state.items.slice(action.index + 1)
+      ];
+      console.log(state);
+      return newDeleteState
     case 'FETCH_MOVIES_REQUEST':
       return Object.assign({}, state, {
         isFetching: true
