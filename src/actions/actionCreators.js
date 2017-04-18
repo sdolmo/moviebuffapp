@@ -55,15 +55,8 @@ export function addMovieFail(response) {
 export function addMovie(title, director, description, genre, img) {
   return function(dispatch) {
     dispatch(requestAddMovie(title, director, description, genre, img))
-    console.log({
-      title,
-      director,
-      description,
-      genre,
-      img
-    })
     return fetch(url, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify({
         title,
         director,
@@ -115,15 +108,30 @@ export function updateMovieFail(response) {
 }
 
 export function updateMovie(param, index, title, director, description, genre, img) {
-  return {
-    type: 'UPDATE_MOVIE',
-    param,
-    index,
-    title,
-    director,
-    description,
-    genre,
-    img
+  return function(dispatch){
+    dispatch(requestUpdateMovie(param, index, title, director, description, genre, img))
+    return fetch(url, {
+      method:"PUT",
+      body: JSON.stringify({
+          title,
+          director,
+          description,
+          genre,
+          img
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "omit"
+    })
+    .then(response => response.json())
+    .then(message =>
+      console.log(message)
+      // dispatch(updateMovieSuccess)
+    )
+    .catch(response =>
+      dispatch(updateMovieFail)
+    )
   }
 }
 

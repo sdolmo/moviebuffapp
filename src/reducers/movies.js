@@ -18,8 +18,6 @@ function movies(state = {
       });
       return newAddState;
     case 'UPDATE_MOVIE_REQUEST':
-      console.log(action);
-      console.log(state);
       const index = action.index;
       const newUpdateState = {...state};
       newUpdateState.items[index] = {
