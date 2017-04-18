@@ -7,25 +7,28 @@ function movies(state = {
     case 'ADD_MOVIE_REQUEST':
       console.log(state)
       const newAddState = {...state};
+      const idNum = state.items.length + 1
       newAddState.items.push({
         title: action.title,
         director: action.director,
         description: action.description,
         genre: action.genre,
         img: action.img,
-        id: '4'
+        id: idNum
       });
       return newAddState;
-    case 'UPDATE_MOVIE':
+    case 'UPDATE_MOVIE_REQUEST':
+      console.log(action);
+      console.log(state);
       const index = action.index;
       const newUpdateState = {...state};
       newUpdateState.items[index] = {
-        id: action.param,
         title: action.title,
         director: action.director,
         description: action.description,
         genre: action.genre,
         img: action.img,
+        id: action.param
       };
       return newUpdateState;
     case 'REMOVE_MOVIE':

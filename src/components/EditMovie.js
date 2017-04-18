@@ -1,16 +1,18 @@
 import React from 'react';
+import { editVisibility } from '../actions/actionCreators';
 
 class EditMovie extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
-    const param = this.props.params.id;
+    const param = parseInt(this.props.params.id);
     const index = this.props.index;
     const title = this.refs.title.value;
     const director = this.refs.director.value;
     const description = this.refs.description.value;
     const genre = this.refs.genre.value;
     const image = this.refs.image.value;
-    this.props.updateMovie(param, index, title, director, description, genre, image);
+    this.props.requestUpdateMovie(param, index, title, director, description, genre, image);
+    this.props.toggleEditForm(editVisibility.DONT_SHOW);
   }
 
   render() {

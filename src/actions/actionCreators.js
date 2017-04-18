@@ -1,6 +1,5 @@
 import 'babel-polyfill';
 import fetch from 'isomorphic-fetch';
-// import store from '../store.js';
 
 const url = 'http://localhost:8000/movies';
 
@@ -85,6 +84,33 @@ export function addMovie(title, director, description, genre, img) {
     .catch(response =>
       dispatch(addMovieFail(response))
     )
+  }
+}
+
+export function requestUpdateMovie(param, index, title, director, description, genre, img) {
+  return {
+    type: 'UPDATE_MOVIE_REQUEST',
+    param,
+    index,
+    title,
+    director,
+    description,
+    genre,
+    img
+  }
+}
+
+export function updateMovieSuccess(message) {
+  return {
+    type: 'UPDATE_MOVIE_SUCCESS',
+    message
+  }
+}
+
+export function updateMovieFail(response) {
+  return {
+    type: 'UPDATE_MOVIE_FAIL',
+    response
   }
 }
 

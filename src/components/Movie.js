@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import MovieItem from './MovieItem';
 import EditMovie from './EditMovie';
 import { editVisibility } from '../actions/actionCreators';
 
