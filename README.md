@@ -3,8 +3,8 @@
 MovieBuff is a web app that utilizes React, Redux, ExpressJS, and a MySQL database to present the user with a list of movies.
 
 ## Demo
-
-[MovieBuff - Live Demo] (http://movie-buff.surge.sh/movies)
+ 
+ [MovieBuff - Live Demo](http://movie-buff.surge.sh/movies)
 
 ## Tools
 
@@ -17,9 +17,8 @@ Technologies used in this Projects:
 ## Installation
 
   Two things required to run this application:
-
-    * [Node.js](https://nodejs.org/en/)
-    * [MovieBuff API](https://github.com/sdolmo/moviebuff_api)
+   * [Node.js](https://nodejs.org/en/)
+   * [MovieBuff API](https://github.com/sdolmo/moviebuff_api)
 
   To download the code and view the application:
 
