@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import fetch from 'isomorphic-fetch';
 
-const url = 'http://localhost:8000/movies';
+const url = 'https://immense-tundra-55521.herokuapp.com/movies';
 
 // EDIT and ADD MODAL
 export const addVisibility = {
