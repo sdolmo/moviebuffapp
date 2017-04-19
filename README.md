@@ -5,7 +5,6 @@ MovieBuff is a web app that utilizes React, Redux, ExpressJS, and a MySQL databa
 ## Demo
 
 [MovieBuff - Live Demo] (http://movie-buff.surge.sh/movies)
-[MovieBuff API] (https://immense-tundra-55521.herokuapp.com/movies)
 
 ## Tools
 
