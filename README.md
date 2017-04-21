@@ -32,6 +32,7 @@ Technologies used in this Projects:
 
   * Add responsive design
   * Improve the UI
+  * Seed DB
   * Clean up code (i.e. modularized reducers)
 
 ## Author
