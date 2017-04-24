@@ -18,20 +18,17 @@ Technologies used in this Projects:
 
   Two things required to run this application:
    * [Node.js](https://nodejs.org/en/)
-   * [MovieBuff API](https://github.com/sdolmo/moviebuff_api)
 
   To download the code and view the application:
 
   1. Clone the repo: `git@github.com:sdolmo/moviebuffapp.git`
   2. Install packages: `npm install`
-  3. Ensure that the MySQL database is running
-  4. Run `npm start`
-  5. Open your browser to: `http://localhost:3000`
 
 ## Further Improvements
 
   * Add responsive design
   * Improve the UI
+  * Seed DB
   * Clean up code (i.e. modularized reducers)
 
 ## Author
