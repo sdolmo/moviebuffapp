@@ -1,45 +1,39 @@
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   background: #000;
   font-family: 'Open Sans', sans-serif;
-  font-size: 2rem;
-}
+  font-size: 2rem; }
 
 h1 {
   font-family: '20_dbregular', sans-serif;
   text-align: center;
   font-weight: normal;
   font-size: 10rem;
-  margin: 2rem 0;
-}
+  margin: 2rem 0; }
 
-h2,h3,h4,h5,h6 {
+h2, h3, h4, h5, h6 {
   font-weight: bold;
-  font-family: 'Caviar_Dreams';
-}
+  font-family: 'Caviar_Dreams'; }
 
 h2 {
   text-align: center;
   margin-top: 0;
-  margin-bottom: 2rem;
-}
+  margin-bottom: 2rem; }
 
 h3 {
   font-size: 5rem;
-  line-height: normal;
-}
+  line-height: normal; }
 
 h4 {
   font-size: 4rem;
   line-height: normal;
   margin-top: 0;
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 p {
   font-weight: normal;
-  font-family: 'Caviar_Dreams';
-}
+  font-family: 'Caviar_Dreams'; }
+
+/*# sourceMappingURL=_typography.css.map */
